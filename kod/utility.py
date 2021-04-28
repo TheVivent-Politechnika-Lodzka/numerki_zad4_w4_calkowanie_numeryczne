@@ -1,4 +1,4 @@
-class funUtil:
+class funDecorator:
 
     FUN = None
     a = 0
