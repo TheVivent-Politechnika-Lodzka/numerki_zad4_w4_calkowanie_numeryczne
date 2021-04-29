@@ -28,7 +28,8 @@ for i in range(2, 7):
 
 print()
 
-# policz Simpsona
+# policz Simpsona - jest tutaj, ponieważ dla większych
+# przedziałów funkcji "szalonych" może się długo liczyć
 while SIMP.error() > EPS: SIMP.next()
 print("Wartość całki wg metody Newtona-Cotesa")
 print("Wartość:     {}".format(SIMP.curr))
