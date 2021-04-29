@@ -56,6 +56,10 @@ def f5(x):
 5. złożenie
 '''
 
+# wielomiany 3, 5, 10 stopień
+# tan()
+# jedna pojebana
+
 functions = [
     # 0:
     ["0.3*x³ - 0.1x² - 3.7x + 0.4", f0],
