@@ -2,6 +2,7 @@
 from functions import print_fun
 from legendre import Legendre
 from simpson import Simp
+from charts import gen_chart
 
 FUNSTR, FUN = print_fun()
 
@@ -11,6 +12,10 @@ B = float(input("Podaj koniec przedziału: "))
 if A > B: A,B = B,A
 
 EPS = float(input("Podaj epsilon (dla metody Newtona-Cotesa): "))
+
+FILENAME = input("Podaj nazwę pliku: ")
+
+gen_chart(FUN, A, B, "wykresy/{}_eps{}_od{}_do{}.png".format(FILENAME, EPS, A, B))
 
 SIMP = Simp(FUN, A, B)
 LEGE = Legendre(FUN, A, B)
