@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from numpy import arange
 
-def gen_chart(fun, a, b, filename):
+def gen_chart(fun, a, b, filename, lege, simp):
     # wczyczyść figurę
     plt.clf()
 
@@ -12,6 +12,8 @@ def gen_chart(fun, a, b, filename):
     x = arange(a, b, 0.01)
     # narysuj funkcje
     plt.plot(x, fun(x), "b-", label="funkcja")
+    plt.plot(lege[0], lege[1], "r-", label="Legendre")
+    plt.plot(simp[0], simp[1], "g-", label="Simpson")
     
     # narysuj legendę
     plt.legend(loc="upper right")

@@ -12,6 +12,7 @@ class Simp:
     h = 0
     i = 0
     n = 0.5 # zaczyna się od 0.5, bo jest od początku mnożone x2, więc przejdzie od razu na 1
+    test = [[],[]]
 
     def __init__(self, FUN, a, b):
         self.a = a # początek przedziału
@@ -19,6 +20,7 @@ class Simp:
         self.FUN = FUN # funkcja całkowana
 
     def next(self):
+        self.test = [[],[]]
         self.n *= 2 # n - ilość wielomianów, więc n = 2N przedziałów
         self.h = (self.b - self.a) / self.n
         self.i += 1
@@ -31,11 +33,16 @@ class Simp:
         for i in range(0, int(self.n), 2):
             x = self.a + i * self.h # policzenie obecnego x
             sum_sub1 += self.FUN(x)
+
+            self.test[0].append(x)
+            self.test[1].append(self.FUN(x))
+
             if i < self.n-1: # ulepszenie w stosunku do oryginalnego algorytmu (nie wymaga dwóch pętli)
                 sum_sub2 += self.FUN(x)
+                
         
         result = sum_min_max + 4*sum_sub1 + 2*sum_sub2
-        result /= 3
+        result *= 1/3
         result *= self.h
 
         # zapisz poprzedni i obecny wynik

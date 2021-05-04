@@ -11,14 +11,14 @@ A = float(input("Podaj początek przedziału: "))
 B = float(input("Podaj koniec przedziału: "))
 if A > B: A,B = B,A
 
-EPS = float(input("Podaj epsilon (dla metody Newtona-Cotesa): "))
+# EPS = float(input("Podaj epsilon (dla metody Newtona-Cotesa): "))
+EPS = float(0.0001)
 
 FILENAME = input("Podaj nazwę pliku: ")
 
-gen_chart(FUN, A, B, "wykresy/{}_eps{}_od{}_do{}.png".format(FILENAME, EPS, A, B))
-
 SIMP = Simp(FUN, A, B)
 LEGE = Legendre(FUN, A, B)
+
 
 for i in range(10): print()
 
@@ -35,7 +35,8 @@ print()
 
 # policz Simpsona - jest tutaj, ponieważ dla większych
 # przedziałów funkcji "szalonych" może się długo liczyć
-while SIMP.error() > EPS: SIMP.next()
+# while SIMP.error() > EPS: SIMP.next()
+for i in range(6): SIMP.next()
 print("Wartość całki wg metody Newtona-Cotesa")
 print("Wartość:     {}".format(SIMP.curr))
 print("iteracji:    {}".format(SIMP.i))
@@ -43,3 +44,5 @@ print("wielomianów: {}".format(SIMP.n))
 print("epsilon:     {}".format(EPS))
 
 print()
+
+gen_chart(FUN, A, B, "wykresy/{}_eps{}_od{}_do{}.png".format(FILENAME, EPS, A, B), LEGE.calcX(), SIMP.test)

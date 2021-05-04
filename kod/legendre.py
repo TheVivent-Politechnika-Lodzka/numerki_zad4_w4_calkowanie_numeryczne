@@ -27,6 +27,7 @@ class Legendre:
     def  __init__(self, fun, a, b):
         self.a = a # początek przedziału
         self.b = b # koniec przdziału
+        self.FUN_og = fun # funkcja całkowana
         self.FUN = funDecorator(fun, a, b) # funkcja całkowana
         # ^^^dekorator skalujący przedział z [a, b] na [-1, 1]
 
@@ -39,3 +40,26 @@ class Legendre:
         # poprawa wyniku w celu zeskalowania przedziału do [-1, 1]
         result *= (self.b-self.a) / 2
         return result
+
+    def calcX(self):
+        test = [self.X[4]]
+        test.append([])
+
+        for i in range(len(test[0])):
+            result = self.COEFS[4][i] * self.FUN(test[0][i])
+            # # result *= (self.b-self.a) / 2
+            # # result *= (self.b-self.a)*2
+            # # result *= (self.a+self.b)/2
+            # result *= (self.a+self.b)/2
+            # # result *= (self.a-self.b)/2 + (self.b+self.a)/2
+            test[1].append(result)
+
+        # scaleX = test[0][0] / self.X[0][0]
+        # scaleX = test[1][0] / self.FUN(self.X[0][0])
+
+        # for i in range(len(test[0])):
+        #     test[0][i] *= (self.b-self.a)/2
+        #     test[0][i] += (self.a+self.b)/2
+
+
+        return test
