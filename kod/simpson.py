@@ -20,7 +20,7 @@ class Simp:
         self.FUN = FUN # funkcja całkowana
 
     def next(self):
-        self.test = [[],[]]
+        self.test = [[],[]] # zerowanie tablicy
         self.n *= 2 # n - ilość wielomianów, więc n = 2N przedziałów
         self.h = (self.b - self.a) / self.n
         self.i += 1
@@ -34,7 +34,7 @@ class Simp:
             x = self.a + i * self.h # policzenie obecnego x
             sum_sub1 += self.FUN(x)
 
-            self.test[0].append(x)
+            self.test[0].append(x) #
             self.test[1].append(self.FUN(x))
 
             if i < self.n-1: # ulepszenie w stosunku do oryginalnego algorytmu (nie wymaga dwóch pętli)

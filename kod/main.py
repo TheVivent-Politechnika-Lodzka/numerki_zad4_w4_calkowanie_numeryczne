@@ -35,8 +35,9 @@ print()
 
 # policz Simpsona - jest tutaj, ponieważ dla większych
 # przedziałów funkcji "szalonych" może się długo liczyć
-# while SIMP.error() > EPS: SIMP.next()
-for i in range(6): SIMP.next()
+gen_chart(FUN, A, B, "wykresy/{}_eps{}_od{}_do{}.png".format(FILENAME, EPS, A, B), LEGE.calcX(), None)
+while SIMP.error() > EPS: SIMP.next()
+# for i in range(6): SIMP.next()
 print("Wartość całki wg metody Newtona-Cotesa")
 print("Wartość:     {}".format(SIMP.curr))
 print("iteracji:    {}".format(SIMP.i))
@@ -45,4 +46,4 @@ print("epsilon:     {}".format(EPS))
 
 print()
 
-gen_chart(FUN, A, B, "wykresy/{}_eps{}_od{}_do{}.png".format(FILENAME, EPS, A, B), LEGE.calcX(), SIMP.test)
+# gen_chart(FUN, A, B, "wykresy/{}_eps{}_od{}_do{}.png".format(FILENAME, EPS, A, B), LEGE.calcX(), SIMP.test)

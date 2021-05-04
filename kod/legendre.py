@@ -47,19 +47,21 @@ class Legendre:
 
         for i in range(len(test[0])):
             result = self.COEFS[4][i] * self.FUN(test[0][i])
-            # # result *= (self.b-self.a) / 2
-            # # result *= (self.b-self.a)*2
-            # # result *= (self.a+self.b)/2
+            # result *= (self.b-self.a)*2
             # result *= (self.a+self.b)/2
-            # # result *= (self.a-self.b)/2 + (self.b+self.a)/2
+            # result *= (self.a-self.b)/2 + (self.b+self.a)/2
+            # result *= -(self.a-self.b)/2
             test[1].append(result)
 
-        # scaleX = test[0][0] / self.X[0][0]
+        # scaleX = self.X[0][0] / test[0][0]
         # scaleX = test[1][0] / self.FUN(self.X[0][0])
 
         # for i in range(len(test[0])):
-        #     test[0][i] *= (self.b-self.a)/2
-        #     test[0][i] += (self.a+self.b)/2
+            # test[0][i] *= self.X[4][i] / test[0][i]
+
+            # test[0][i] = (self.a+self.b)/2 + ((self.b-self.a)*test[0][i])/2
+            # test[0][i] *= (self.b-self.a)/2
+            # test[0][i] += (self.a+self.b)/2
 
 
         return test
